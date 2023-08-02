@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const userDetails = new mongoose.Schema({
+const userDetailsSchema = new mongoose.Schema({
   firstname: {
     type: String,
     require: true,
@@ -16,11 +16,12 @@ const userDetails = new mongoose.Schema({
     require: true,
     unique: true,
   },
-  email: {
+  password: {
     type: String,
-    require: "Password should contain atleast 8 character",
+    require: true,
     unique: false,
   },
 })
 
-module.exports = mongoose.model.User || mongoose.model("User", userDetails)
+// module.exports = mongoose.model.User || mongoose.model("User", userDetails)
+module.exports = mongoose.model("User", userDetailsSchema)
