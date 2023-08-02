@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
   const { email, password } = req.body
 
   try {
-    const user = await userDetails.findOne({ email })
+    const user = await UserLogin.findOne({ email })
 
     if (!user) {
       return res.status(404).json({ message: "User not found" })
@@ -24,8 +24,12 @@ router.post("/", async (req, res) => {
     const token = jwt.sign({ userId: user._id }, process.env.JWTPRIVATEKEY, {
       expiresIn: "1h",
     })
-
-    res.status(200).json({ message: "Successfully Login" })
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    })
+    res.status(200).json({ message: "Successfully Login", token })
   } catch (error) {
     res.json({ message: "An error occured", error: error.message })
   }
