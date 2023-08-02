@@ -3,12 +3,12 @@ const mongoose = require("mongoose")
 const userDetails = new mongoose.Schema({
   firstname: {
     type: String,
-    require: "Please provide your first name",
+    require: true,
     unique: false,
   },
   lastname: {
     type: String,
-    require: "Please provide your last name",
+    require: true,
     unique: false,
   },
   email: {
@@ -18,7 +18,7 @@ const userDetails = new mongoose.Schema({
   },
   email: {
     type: String,
-    require: "Password should contain atleast 8 character",
+    require: true,
     unique: false,
   },
 })

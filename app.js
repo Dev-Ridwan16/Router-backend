@@ -1,6 +1,6 @@
 const express = require("express")
 const dbConnect = require("./Database/dbConnector")
-const userRoutes = require("./routes/userRoutes")
+const userRoutes = require("./routes/signup_route/userRoutes")
 const cors = require("cors")
 const app = express()
 const PORT = process.env.PORT || 5000
