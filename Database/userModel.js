@@ -18,7 +18,7 @@ const userDetails = new mongoose.Schema({
   },
   email: {
     type: String,
-    require: true,
+    require: "Password should contain atleast 8 character",
     unique: false,
   },
 })
