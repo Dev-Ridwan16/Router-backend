@@ -3,11 +3,11 @@ const mongoose = require("mongoose")
 const loginDetailsSchema = new mongoose.Schema({
   email: {
     type: String,
-    require: true,
+    required: true, // Fix: Change 'require' to 'required'
   },
   password: {
     type: String,
-    require: true,
+    required: true,
   },
 })
 
