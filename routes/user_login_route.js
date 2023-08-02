@@ -1,5 +1,5 @@
 const express = require("express")
-const UserLogin = require("../Model/user_login_model")
+const userLogin = require("../Model/user_login_model")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
   const { email, password } = req.body
 
   try {
-    const user = await userDetails.findOne({ email })
+    const user = await userLogin.findOne({ email })
 
     if (!user) {
       return res.status(404).json({ message: "User not found" })
