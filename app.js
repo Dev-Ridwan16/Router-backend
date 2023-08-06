@@ -10,7 +10,7 @@ dbConnect()
 app.use(express.json())
 app.use(cors())
 app.use("/user-details", userRoutes)
-app.use("/user-details/login", loginRoutes)
+app.use("", loginRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server running at ${PORT}`)

@@ -32,6 +32,7 @@ router.post("/", async (req, res) => {
     res.status(200).json({ message: "Successfully Login", token })
   } catch (error) {
     res.json({ message: "An error occured", error: error.message })
+    res.status(500).json({ message: "Internal server error" })
   }
 })
 
