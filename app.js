@@ -9,8 +9,8 @@ const PORT = process.env.PORT || 5000
 dbConnect()
 app.use(express.json())
 app.use(cors())
-app.use("/user-details", userRoutes)
-app.use("", loginRoutes)
+app.use("/sign-up", userRoutes)
+app.use("/login", loginRoutes)
 
 app.listen(PORT, () => {
   console.log(`Server running at ${PORT}`)
