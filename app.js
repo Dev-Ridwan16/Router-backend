@@ -5,13 +5,10 @@ const loginRoutes = require("./routes/user_login_route")
 const cors = require("cors")
 const app = express()
 const PORT = process.env.PORT || 5000
-const corsOption = {
-  origin: "http://localhost:5173",
-}
 
 dbConnect()
 app.use(express.json())
-app.use(cors(corsOption))
+app.use(cors())
 app.use("/sign-up", userRoutes)
 app.use("/login", loginRoutes)
 
