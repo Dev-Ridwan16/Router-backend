@@ -12,6 +12,7 @@ const loginDetailsSchema = new mongoose.Schema({
   },
 })
 
-const UserLogin = mongoose.model("UserLogin", loginDetailsSchema)
+// const UserLogin = mongoose.model("UserLogin", loginDetailsSchema)
 
-module.exports = UserLogin
+// module.exports = UserLogin
+module.exports = mongoose.model("Login", loginDetailsSchema)
