@@ -5,10 +5,13 @@ const loginRoutes = require("./routes/user_login_route")
 const cors = require("cors")
 const app = express()
 const PORT = process.env.PORT || 5000
+const corsOption = {
+  origin: "https://router-backend.onrender.com",
+}
 
 dbConnect()
 app.use(express.json())
-app.use(cors())
+app.use(cors(corsOption))
 app.use("/sign-up", userRoutes)
 app.use("/login", loginRoutes)
 
