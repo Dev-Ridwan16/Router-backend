@@ -6,7 +6,7 @@ const cors = require("cors")
 const app = express()
 const PORT = process.env.PORT || 5000
 const corsOption = {
-  origin: "https://router-backend.onrender.com",
+  origin: "http://localhost:5173",
 }
 
 dbConnect()
