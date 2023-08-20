@@ -8,13 +8,17 @@ router.get("/:userId", async (req, res) => {
     const user = await userDetails.findById(userId)
 
     if (!user) {
-      res.status(404).json({ message: "User not found" })
+      return res.status(404).json({ message: "User not found" })
     }
 
-    const safeUser = user.toObject()
-    delete safeUser.password
+    const { _id, firstname, lastname, email } = user
 
-    res.send(safeUser)
+    res.json({
+      _id,
+      firstname,
+      lastname,
+      email,
+    })
   } catch (error) {
     console.log("Error: ", error)
     res.status(500).json({ message: "Failed to fetch user details" })
