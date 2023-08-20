@@ -2,10 +2,10 @@ const express = require("express")
 const router = express.Router()
 const userDetails = require("../Model/user_signup_model")
 
-router.get("/:userId", async (req, res) => {
+router.get("/:email", async (req, res) => {
   try {
-    const userId = req.params.userId
-    const user = await userDetails.findById(userId)
+    const userEmail = req.params.email
+    const user = await userDetails.findById({ email: userEmail })
 
     if (!user) {
       return res.status(404).json({ message: "User not found" })
